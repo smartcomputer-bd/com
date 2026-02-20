@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMART COMPUTER - Digital Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #FFFDD0; /* ক্রিম কালার */
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: #FFFDD0;
+            min-height: 100vh;
+            padding-bottom: 50px;
+            text-align: center;
+            position: relative;
+        }
+
+        /* ব্যানার সেকশন */
+        .banner-container {
+            position: relative;
+            width: 100%;
+            height: 200px;
+        }
+
+        .banner-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* লোগো সার্কেল */
+        .logo-circle {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 100px;
+            background: white;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid #FFFDD0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h1 {
+            margin-top: 60px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* কন্টাক্ট আইকন রো */
+        .contact-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .icon-circle {
+            width: 40px;
+            height: 40px;
+            background-color: red;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            transition: 0.3s;
+        }
+
+        /* সার্ভিস লিস্ট */
+        .services-section {
+            text-align: left;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.5);
+            margin: 20px;
+            border-radius: 10px;
+        }
+
+        .services-section h3 {
+            border-bottom: 2px solid red;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .services-list {
+            list-style: none;
+            padding: 0;
+            line-height: 1.8;
+        }
+
+        /* সোশ্যাল মিডিয়া বার */
+        .social-bar {
+            background-color: red;
+            color: white;
+            margin: 10px 20px;
+            padding: 12px;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .social-bar i {
+            margin-right: 10px;
+            font-size: 20px;
+        }
+
+        /* সেভ বাটন */
+        .save-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            border-radius: 30px;
+            cursor: pointer;
+            margin-top: 30px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .save-btn:hover { background-color: #218838; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="banner-container">
+        <img src="https://scontent.fjsr15-1.fna.fbcdn.net/v/t39.30808-6/635761163_1365991875543298_6434664917032334017_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=2a1932&_nc_ohc=KDP3YR8M4SQQ7kNvwEQ9i-6&_nc_oc=Adl6eVLtxzjnxrySOjWuMz11H_KrY7duqKg5yQqoM8uPpDZtK6zNwCONCLP5-3dUxq0&_nc_zt=23&_nc_ht=scontent.fjsr15-1.fna&_nc_gid=7It8qpDyyO3ftcxvy9Tw5w&oh=00_AftRnKhDSLk2K1ImGuFQz_ZjCVDCJSBGn1wRNLzqadZNDg&oe=699D8821" alt="Banner" class="banner-img">
+        <div class="logo-circle">
+            <img src="https://scontent.fjsr15-1.fna.fbcdn.net/v/t39.30808-6/638835323_2875391056000906_5807540080869249932_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=13d280&_nc_aid=0&_nc_eui2=AeHBbC5Tb3C8q--OyDRzWR2wWO4p3qR7IFJY7inepHsgUm-dWGzjz5slQamG3pTnRvJEG2HAiob1e_lA1O70oucu&_nc_ohc=0cb9WAU4n78Q7kNvwGA2zPO&_nc_oc=AdkZQOkoQ5lYHeDVeTST6-LEeOjr50eNCnhXsw2cISAsBbs1v9fL69Y9B9LtRdjq57c&_nc_zt=23&_nc_ht=scontent.fjsr15-1.fna&_nc_gid=XOIW_ofVspVbncuV01R-Hg&oh=00_Afu0yZP8UvqFdjDDiOHmBXvTLbi33iAk5THM1Fe5gPrkBA&oe=699D961E" alt="Logo" class="logo-img">
+        </div>
+    </div>
+
+    <h1>SMART COMPUTER</h1>
+
+    <div class="contact-icons">
+        <a href="tel:+8801614398989" class="icon-circle" title="Call"><i class="fas fa-phone"></i></a>
+        <a href="https://wa.me/8801614398989" class="icon-circle" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://t.me/atiqul6660" class="icon-circle" title="Telegram"><i class="fab fa-telegram"></i></a>
+        <a href="mailto:smartcomputer660@gmail.com" class="icon-circle" title="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://goo.gl/maps/sMKHgjYqYzf1teTU9" class="icon-circle" title="Location"><i class="fas fa-map-marker-alt"></i></a>
+    </div>
+
+    <div class="services-section">
+        <h3>Service:</h3>
+        <ul class="services-list">
+            <li>👉 Computer/Laptop Servicing</li>
+            <li>👉 Computer Hardware</li>
+            <li>👉 Computer Software</li>
+            <li>👉 Mobile Accessories</li>
+            <li>👉 Windows Installation</li>
+            <li>👉 CCTV Camera Installation</li>
+            <li>👉 Birth Certificate Application</li>
+            <li>👉 NID Application</li>
+            <li>👉 Driving Licence Application</li>
+            <li>👉 Passport/Visa Application</li>
+            <li>👉 Job Application</li>
+            <li>👉 College Admission</li>
+            <li>👉 Argent Photo Print</li>
+            <li>👉 Computer Compose</li>
+            <li>👉 Printing/Photocopy</li>
+            <li>👉 Laminating</li>
+            <li>👉 Online GD</li>
+            <li>👉 Police Clearance</li>
+            <li>👉 Banner/Mug Print</li>
+            <li>👉 Digital Visiting Card</li>
+            <li>👉 Cash Memo Printing</li>
+            <li>👉 E-TIN Certificate</li>
+            <li>👉 Land Tax Payment</li>
+            <li>👉 Bkash/Nagad/Rocket</li>
+            <li>👉 Mobile Recharge</li>
+            <li>👉 Prepaid Meter Recharge</li>
+            <li>👉 Utility Bill Payment</li>
+            <li>👉 Train Ticket</li>
+        </ul>
+    </div>
+
+    <a href="https://www.facebook.com/smartcomputer3" class="social-bar"><i class="fab fa-facebook"></i> Facebook</a>
+    <a href="https://www.youtube.com/@SmartComputer-mj5zh" class="social-bar"><i class="fab fa-youtube"></i> Youtube</a>
+    <a href="https://www.instagram.com/atiqul.islam6660" class="social-bar"><i class="fab fa-instagram"></i> Instagram</a>
+    <a href="https://www.tiktok.com/@atiqul.6660?_r=1&_t=ZS-93VGjXHL95V" class="social-bar"><i class="fab fa-tiktok"></i> Tiktok</a>
+
+    <button class="save-btn" onclick="downloadVCard()">SAVE CONTACT</button>
+</div>
+
+<script>
+function downloadVCard() {
+    const vcardData = `BEGIN:VCARD
+VERSION:3.0
+FN:SMART COMPUTER
+TEL;TYPE=CELL:+8801614398989
+EMAIL:smartcomputer660@gmail.com
+URL:https://goo.gl/maps/sMKHgjYqYzf1teTU9
+NOTE:Our Services - Computer/Laptop Servicing, Computer Hardware, Computer Software, Mobile Accessories, Windows Installation, CCTV Camera Installation, Birth Certificate, NID, Driving Licence, Passport/Visa, Job Application, College Admission, Photo Print, Printing, Online GD, Police Clearance, Banner Print, E-TIN, Land Tax, Mobile Recharge, Train Ticket.
+END:VCARD`;
+
+    const blob = new Blob([vcardData], { type: "text/vcard" });
+    const url = window.URL.createObjectURL(blob);
+    const newLink = document.createElement("a");
+    newLink.href = url;
+    newLink.setAttribute("download", "Smart_Computer.vcf");
+    document.body.appendChild(newLink);
+    newLink.click();
+    document.body.removeChild(newLink);
+}
+</script>
+
+</body>
+</html>
