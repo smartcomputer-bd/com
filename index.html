@@ -26,7 +26,7 @@
         }
 
         .banner-img {
-            width: 100%;
+            width: %;
             height: 220px;
             object-fit: cover;
             display: block;
@@ -39,7 +39,7 @@
             transform: translateX(-50%);
             width: 150px;
             height: 150px;
-            background: red;
+            background: white;
             border-radius: 50%;
             padding: 5px;
             box-shadow: 0 4px px rgba(0,0,0,0.1);
@@ -96,31 +96,52 @@
             50% { transform: translateY(-8px); }
         }
 
-        /* Service List Section */
-        .services-card {
-            background: #ffffff;
+            /* Category Wise Services */
+        .services-wrapper {
             width: 95%;
             max-width: 500px;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            text-align: left;
-            margin-bottom: 30px;
         }
 
-        .services-card h3 {
-            color: #000000;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-            margin-top: 0;
+        .category-card {
+            background: #ffffff;
+            margin-bottom: 15px;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
+
+        .category-title {
+            color: #d32f2f;
+            font-size: 20px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #ffef85;
+            padding-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .category-title i { margin-right: 10px; }
 
         .services-list {
             list-style: none;
             padding: 0;
-            columns: 1;
-            font-size: 18px;
-            line-height: 1.8;
+            margin: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            font-size: 15px;
+        }
+
+        .services-list li {
+            display: flex;
+            align-items: center;
+        }
+
+        .services-list li::before {
+            content: "✔";
+            color: green;
+            margin-right: 5px;
+            font-weight: bold;
         }
 
         /* Social Media Bars */
@@ -155,19 +176,20 @@
         }
 
         /* Save Button */
-        .save-btn {
+       .save-btn {
             background-color: #0060ff;
             color: #fff;
             border: none;
-            padding: 18px 50px;
-            border-radius: 10px;
-            font-size: 20px;
+            padding: 18px;
+            border-radius: 50px;
+            font-size: 18px;
             cursor: pointer;
             font-weight: bold;
-            margin: 40px 0;
-            width: 80%;
-            max-width: 300px;
-            transition: 0.3s;
+            margin: 30px 0;
+            margin-left: 120px;
+            width: 50%;
+            max-width: 400px;
+            box-shadow: 0 4px 15px rgba(0,96,255,0.3);
         }
 
         .save-btn:hover { background-color: #000000; }
@@ -195,39 +217,64 @@
         </div>
     </div>
 
-    <div class="services-card">
-        <h2>Service:</h3>
-        <ul class="services-list" id="services-text">
-            <li>👉 Computer/Laptop Servicing</li>
-            <li>👉 Computer Hardware</li>
-            <li>👉 Computer Software</li>
-            <li>👉 Mobile Accessories</li>
-            <li>👉 Windows Installation</li>
-            <li>👉 CCTV Camera Installation</li>
-            <li>👉 Birth Certificate Application</li>
-            <li>👉 NID Application</li>
-            <li>👉 Driving Licence Application</li>
-            <li>👉 Passport/Visa Application</li>
-            <li>👉 Job Application</li>
-            <li>👉 College Admission</li>
-            <li>👉 Argent Photo Print</li>
-            <li>👉 Computer Compose</li>
-            <li>👉 Printing/Photocopy</li>
-            <li>👉 Laminating</li>
-            <li>👉 Online GD</li>
-            <li>👉 Police Clearance</li>
-            <li>👉 Banner/Mug Print</li>
-            <li>👉 Digital Visiting Card</li>
-            <li>👉 Cash Memo Printing</li>
-            <li>👉 E-TIN Certificate</li>
-            <li>👉 Land Tax Payment</li>
-            <li>👉 Bkash/Nagad/Rocket</li>
-            <li>👉 Mobile Recharge</li>
-            <li>👉 Prepaid Meter Recharge</li>
-            <li>👉 Utility Bill Payment</li>
-            <li>👉 Train Ticket</li>
+    <div class="services-wrapper">
+        <div class="category-card">
+            <div class="category-title"><i class="fas fa-laptop-code"></i> কম্পিউটার ও হার্ডওয়্যার</div>
+            <ul class="services-list">
+                <li>কম্পিউটার সার্ভিসিং</li>
+                <li>ল্যাপটপ সার্ভিসিং</li>
+                <li>উইন্ডোজ সেটআপ</li>
+                <li>সিসিটিভি ক্যামেরা ইন্সটল</li>
+                <li>কম্পিউটার হার্ডওয়্যার</li>
+                <li>কম্পিউটার সফটওয়্যার</li>
+            </ul>
+        </div>
+
+        <div class="category-card">
+            <div class="category-title"><i class="fas fa-file-invoice"></i> অনলাইন ও আবেদন সেবা</div>
+            <ul class="services-list">
+                <li>জন্ম নিবন্ধন আবেদন</li>
+                <li>NID আবেদন</li>
+                <li>পাসপোর্ট ও ভিসা</li>
+                <li>ড্রাইভিং লাইসেন্স</li>
+                <li>চাকরির আবেদন</li>
+                <li>পুলিশ ক্লিয়ারেন্স</li>
+                <li>ই-টিন সার্টিফিকেট</li>
+                <li>অনলাইন জিডি</li>
+            </ul>
+        </div>
+
+        <div class="category-card">
+            <div class="category-title"><i class="fas fa-print"></i> প্রিন্টিং ও অন্যান্য সেবা</div>
+            <ul class="services-list">
+                <li>ফটো প্রিন্ট</li>
+                <li>ফটোকপি ও লেমিনেটিং</li>
+                <li>ব্যানার ও মগ প্রিন্ট</li>
+                <li>ডিজিটাল ভিজিটিং কার্ড</li>
+                <li>বিকাশ/নগদ/রকেট</li>
+                <li>ট্রেন টিকিট</li>
+                <li>বিদ্যুৎ বিল প্রদান</li>
+                <li>মোবাইল রিচার্জ</li>
         </ul>
     </div>
+
+
+        <div class="category-card">
+            <div class="category-title"><i class="fas fa-file-invoice"></i> কম্পিউটার ট্রেইনিং ও কোর্স</div>
+            <ul class="services-list">
+                <li>Software Development</li>
+                <li>Website Design</li>
+                <li>Office Application</li>
+                <li>Graphics Design</li>
+                <li>AutoCAD 2D & 3D</li>
+                <li>Computer Database</li>
+                <li>Computer Troubleshooting</li>
+                <li>Python Programing</li>
+                <li>CSS & JAVA Programing</li>
+                <li>Computer Networking</li>
+            </ul>
+        </div>
+
 
     <div class="social-links-container">
         <a href="https://www.facebook.com/smartcomputer3" class="social-bar"><i class="fab fa-facebook"></i> Facebook</a>
@@ -236,7 +283,7 @@
         <a href="https://www.tiktok.com/@atiqul.6660?_r=1&_t=ZS-93VGjXHL95V" class="social-bar"><i class="fab fa-tiktok"></i> Tiktok</a>
     </div>
 
-    <button class="save-btn" onclick="generateVCard()">Save to Phonebook</button>
+    <button class="save-btn" onclick="generateVCard()"><i class="fas fa-user-plus"></i> Save to Phonebook</button>
 
     <script>
         function generateVCard() {
