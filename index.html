@@ -15,35 +15,50 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            overflow-x: hidden;
         }
 
-        /* Banner & Profile Section */
+        /* Banner Section */
         .header-container {
             width: 100%;
             max-width: 600px;
+            padding: 20px 15px 0 15px; /* Added padding for smaller look */
             position: relative;
-            background-color: #ffef85;
-            padding: 10px;
+            text-align: center;
+        }
+
+        .banner-wrapper {
+            border: 4px solid #000; /* Black Boundary */
+            border-radius: 15px;
+            overflow: hidden;
+            line-height: 0;
         }
 
         .banner-img {
             width: 100%;
-            height: 220px;
+            height: 180px; /* Slightly smaller height */
             object-fit: cover;
             display: block;
         }
 
+        /* Animated Profile Logo */
         .logo-container {
-            position: absolute;
-            bottom: -95px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 150px;
-            height: 150px;
+            width: 130px;
+            height: 130px;
             background: white;
             border-radius: 50%;
             padding: 5px;
-            box-shadow: 0 4px px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            margin: -65px auto 0 auto; /* Positioned centered below banner */
+            position: relative;
+            z-index: 0;
+            animation: logo-pop 2s infinite ease-in-out;
+        }
+
+        @keyframes logo-pop {
+            0% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.08) rotate(2deg); box-shadow: 0 12px 25px rgba(0,0,0,0.3); }
+            100% { transform: scale(1) rotate(0deg); }
         }
 
         .logo-img {
@@ -51,21 +66,23 @@
             height: 100%;
             border-radius: 50%;
             object-fit: cover;
+            border: 2px solid #f0f0f0;
         }
 
         /* Identity Section */
         .identity {
-            margin-top: 100px;
+            margin-top: 15px;
             text-align: center;
             width: 100%;
         }
 
         h1 {
-            font-size: 50px;
+            font-size: 40px;
             font-weight: 800;
             color: #222;
             margin: 10px 0;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         /* Animated Circular Icons */
@@ -73,7 +90,7 @@
             display: flex;
             justify-content: center;
             gap: 15px;
-            margin: 25px 0;
+            margin: 20px 0;
             flex-wrap: wrap;
         }
 
@@ -87,17 +104,17 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            font-size: 24px;
+            font-size: 22px;
             transition: 0.3s;
             animation: bounce 2s infinite ease-in-out;
         }
 
         @keyframes bounce {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+            50% { transform: translateY(-10px); }
         }
 
-            /* Category Wise Services */
+        /* Dynamic Category Cards */
         .services-wrapper {
             width: 95%;
             max-width: 500px;
@@ -105,23 +122,31 @@
 
         .category-card {
             background: #ffffff;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             padding: 20px;
-            border-radius: 12px;
+            border-radius: 15px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .category-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
 
         .category-title {
             color: #d32f2f;
             font-size: 20px;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             border-bottom: 2px solid #ffef85;
-            padding-bottom: 5px;
+            padding-bottom: 8px;
             display: flex;
             align-items: center;
+            font-weight: bold;
         }
 
-        .category-title i { margin-right: 10px; }
+        .category-title i { margin-right: 12px; font-size: 22px; }
 
         .services-list {
             list-style: none;
@@ -129,19 +154,20 @@
             margin: 0;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 8px;
-            font-size: 15px;
+            gap: 10px;
+            font-size: 14px;
         }
 
         .services-list li {
             display: flex;
             align-items: center;
+            color: #444;
         }
 
         .services-list li::before {
             content: "✔";
-            color: green;
-            margin-right: 5px;
+            color: #2e7d32;
+            margin-right: 8px;
             font-weight: bold;
         }
 
@@ -149,6 +175,7 @@
         .social-links-container {
             width: 95%;
             max-width: 500px;
+            margin-top: 10px;
             margin-bottom: 20px;
         }
 
@@ -159,9 +186,9 @@
             background-color: red;
             color: white;
             text-decoration: none;
-            padding: 15px;
+            padding: 14px;
             margin-bottom: 12px;
-            border-radius: 50px; /* Round Corners */
+            border-radius: 50px;
             font-weight: bold;
             font-size: 18px;
             transition: all 0.3s ease;
@@ -169,7 +196,7 @@
 
         .social-bar i {
             margin-right: 15px;
-            font-size: 24px;
+            font-size: 22px;
         }
 
         .social-bar:active, .social-bar:focus {
@@ -181,25 +208,31 @@
             background-color: #0060ff;
             color: #fff;
             border: none;
-            padding: 10px; 0px;
-            border-radius: 10px;
-            font-size: 15px;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 16px;
             cursor: pointer;
             font-weight: bold;
-            margin: 50px 0;
-            margin-left: 95px;
-            width: 50%;
+            margin: 30px 0 60px 0;
+            width: 80%;
             max-width: 300px;
             transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0,96,255,0.3);
         }
 
-        .save-btn:hover { background-color: #000000; }
+        .save-btn:hover { 
+            background-color: #000; 
+            transform: scale(1.05);
+        }
+
     </style>
 </head>
 <body>
 
     <div class="header-container">
-        <img src="https://github.com/smartcomputer-bd/com/blob/main/Smart%20Logo.png?raw=true" alt="Banner" class="banner-img">
+        <div class="banner-wrapper">
+            <img src="https://github.com/smartcomputer-bd/com/blob/main/Smart%20Logo.png?raw=true" alt="Banner" class="banner-img">
+        </div>
         
         <div class="logo-container">
             <img src="https://github.com/smartcomputer-bd/com/blob/main/Profile%20Photo.png?raw=true" alt="Logo" class="logo-img" id="vcard-photo">
@@ -225,7 +258,7 @@
                 <li>কম্পিউটার সার্ভিসিং</li>
                 <li>ল্যাপটপ সার্ভিসিং</li>
                 <li>উইন্ডোজ সেটআপ</li>
-                <li>সিসিটিভি ক্যামেরা ইন্সটল</li>
+                <li>সিসিটিভি ক্যামেরা সেটাপ</li>
                 <li>কম্পিউটার হার্ডওয়্যার</li>
                 <li>কম্পিউটার সফটওয়্যার</li>
             </ul>
@@ -250,7 +283,7 @@
         </div>
 
         <div class="category-card">
-            <div class="category-title"><i class="fas fa-print"></i> </i>প্রিন্টিং সেবা</div>
+            <div class="category-title"><i class="fas fa-print"></i> প্রিন্টিং সেবা</div>
             <ul class="services-list">
                 <li>আর্জেন্ট ছবি প্রিন্ট</li>
                 <li>ছবি থেকে ছবি</li>
@@ -261,10 +294,10 @@
                 <li>ব্যানার ও মগ প্রিন্ট</li>
                 <li>ডিজিটাল ভিজিটিং কার্ড</li>
             </ul>
-    </div>
+        </div>
 
-       <div class="category-card">
-            <div class="category-title"><i class="fas fa-print"></i> অন্যান্য সেবা</div>
+        <div class="category-card">
+            <div class="category-title"><i class="fas fa-wallet"></i> অন্যান্য সেবা</div>
             <ul class="services-list">
                 <li>বিকাশ/নগদ/রকেট</li>
                 <li>মোবাইল রিচার্জ</li>
@@ -274,26 +307,25 @@
                 <li>বিদ্যুৎ বিল প্রদান</li>
                 <li>ট্রেনের টিকিট</li>
                 <li>বাসের টিকিট</li>
-    
-        </ul>
-    </div>
+            </ul>
+        </div>
 
         <div class="category-card">
-            <div class="category-title"><i class="fas fa-file-invoice"></i>কম্পিউটার ট্রেইনিং ও কোর্সসমূহ</div>
+            <div class="category-title"><i class="fas fa-graduation-cap"></i> কম্পিউটার ট্রেইনিং ও কোর্স</div>
             <ul class="services-list">
-                <li>Software Development</li>
-                <li>Website Design</li>
+                <li>Software</li>
+                <li>Web Development</li>
                 <li>Office Application</li>
                 <li>Graphics Design</li>
                 <li>AutoCAD 2D & 3D</li>
                 <li>Computer Database</li>
-                <li>Computer Troubleshooting</li>
+                <li>Troubleshooting</li>
                 <li>Python Programing</li>
-                <li>CSS & JAVA Programing</li>
-                <li>Computer Networking</li>
+                <li>CSS & JAVA</li>
+                <li>Networking</li>
             </ul>
         </div>
-
+    </div>
 
     <div class="social-links-container">
         <a href="https://www.facebook.com/smartcomputer3" class="social-bar"><i class="fab fa-facebook"></i> Facebook</a>
@@ -306,16 +338,6 @@
 
     <script>
         function generateVCard() {
-            const name = "SMART COMPUTER";
-            const phone = "+8801614398989";
-            const email = "smartcomputer660@gmail.com";
-            const website = "https://smartcomputer-bd.github.io/com";
-            const logoUrl = document.getElementById('vcard-photo').src;
-            
-            // Get all services as text for Note
-            const services = Array.from(document.querySelectorAll('#services-text li'))
-                                  .map(li => li.innerText).join('\\n');
-
             const vCardData = `BEGIN:VCARD
 VERSION:2.1
 N:COMPUTER;SMART;;;
