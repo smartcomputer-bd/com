@@ -143,6 +143,9 @@
                 <button onclick="switchTab('courses')" id="nav-courses" class="tab-btn px-4 py-2 rounded-lg hover:bg-emerald-50 hover:text-emerald-600 transition-all">
                     <i class="fa-solid fa-graduation-cap mr-1.5"></i> আইটি কোর্স
                 </button>
+                <button onclick="switchTab('results')" id="nav-results" class="tab-btn px-4 py-2 rounded-lg hover:bg-emerald-50 hover:text-emerald-600 transition-all">
+                    <i class="fa-solid fa-graduation-cap mr-1.5"></i> রেজাল্ট ও এডমিশন
+                </button>
                 <button onclick="switchTab('order')" id="nav-order" class="tab-btn px-4 py-2 rounded-lg hover:bg-emerald-50 hover:text-emerald-600 transition-all">
                     <i class="fa-solid fa-cart-shopping mr-1.5"></i> সার্ভিস অর্ডার
                 </button>
@@ -179,6 +182,9 @@
             <button onclick="switchTab('courses')" class="w-full text-left px-3 py-2 rounded-md hover:bg-slate-100 font-medium">
                 <i class="fa-solid fa-graduation-cap w-6 text-emerald-600"></i> কম্পিউটার ট্রেনিং কোর্স
             </button>
+            <button onclick="switchTab('results')" class="w-full text-left px-3 py-2 rounded-md hover:bg-slate-100 font-medium">
+                <i class="fa-solid fa-graduation-cap w-6 text-emerald-600"></i> রেজাল্ট ও এডমিশন
+            </button>
             <button onclick="switchTab('order')" class="w-full text-left px-3 py-2 rounded-md hover:bg-slate-100 font-medium">
                 <i class="fa-solid fa-cart-shopping w-6 text-emerald-600"></i> অনলাইনে সার্ভিস অর্ডার
             </button>
@@ -198,7 +204,16 @@
 
     <!-- TAB 1: HOME PAGE -->
     <div id="tab-home" class="tab-content block">
-        
+        <!-- ANNOUNCEMENT IMAGE SHAPE: edit CONFIG.announcementImageUrl below -->
+        <section class="bg-slate-50 pt-6 px-4">
+            <div class="container mx-auto max-w-5xl">
+                <div class="relative overflow-hidden rounded-2xl md:rounded-3xl border-4 border-emerald-400 shadow-xl bg-white" data-aos="zoom-in">
+                    <div class="absolute top-0 left-0 bg-emerald-600 text-white text-sm font-bold px-4 py-1.5 rounded-br-xl z-10"><i class="fa-solid fa-bullhorn mr-2"></i>বিজ্ঞপ্তি</div>
+                    <img id="announcementImage" src="" alt="প্রতিষ্ঠানের বিজ্ঞপ্তি" class="w-full max-h-[620px] object-contain min-h-[140px]">
+                </div>
+            </div>
+        </section>
+
         <!-- ANIMATED HERO BANNER WITH CANVAS PARTICLES -->
         <section class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-950 text-white py-20 md:py-28 overflow-hidden">
             <!-- Canvas Animated Network Nodes Background -->
@@ -210,7 +225,7 @@
                         <i class="fa-solid fa-circle-check mr-1 text-emerald-400"></i> আধুনিক ও ডিজিটাল আইটি সেবা কেন্দ্র
                     </span>
                     <h1 class="text-3xl md:text-5xl lg:text-6xl font-black leading-tight tracking-wide">
-                        স্মার্ট কম্পিউটার এন্ড ট্রেনিং সেন্টারে <br>
+                        স্মার্ট কম্পিউটার এন্ড ট্রেনিং সেন্টার <br>
                         <span class="gradient-text">আপনার সকল আইটি সমস্যার দ্রুত সমাধান</span>
                     </h1>
                     <p class="text-slate-300 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
@@ -332,6 +347,43 @@
             <div class="container mx-auto px-4">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="coursesListContainer">
                     <!-- Populated by JS -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- TAB: RESULTS & ADMISSION -->
+    <div id="tab-results" class="tab-content hidden">
+        <section class="py-12 bg-gradient-to-r from-indigo-900 via-blue-800 to-emerald-700 text-white text-center">
+            <div class="container mx-auto px-4">
+                <h1 class="text-3xl md:text-4xl font-extrabold"><i class="fa-solid fa-graduation-cap mr-2"></i> রেজাল্ট ও এডমিশন</h1>
+                <p class="text-blue-100 mt-2">শিক্ষার্থীর ফলাফল দেখুন এবং পছন্দের কোর্সে ভর্তির আবেদন করুন</p>
+            </div>
+        </section>
+        <section class="py-12 bg-slate-50">
+            <div class="container mx-auto px-4 max-w-5xl grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white p-6 md:p-8 rounded-3xl shadow-lg border border-slate-200">
+                    <h2 class="text-2xl font-bold text-slate-800 mb-2"><i class="fa-solid fa-file-circle-check text-emerald-600 mr-2"></i>শিক্ষার্থীর রেজাল্ট</h2>
+                    <p class="text-slate-600 text-sm mb-5">রোল নম্বর দিয়ে ফলাফল অনুসন্ধান করুন।</p>
+                    <form onsubmit="lookupStudentResult(event)" class="space-y-4">
+                        <input id="resultRoll" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-500 focus:outline-none" placeholder="রোল নম্বর লিখুন">
+                        <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-xl" type="submit">রেজাল্ট দেখুন</button>
+                    </form>
+                    <div id="resultOutput" class="mt-5" aria-live="polite"></div>
+                </div>
+                <div class="bg-white p-6 md:p-8 rounded-3xl shadow-lg border border-slate-200">
+                    <h2 class="text-2xl font-bold text-slate-800 mb-2"><i class="fa-solid fa-user-plus text-emerald-600 mr-2"></i>কোর্সে ভর্তি আবেদন</h2>
+                    <p class="text-slate-600 text-sm mb-5">ফরম পূরণ করে WhatsApp-এ আবেদন পাঠান।</p>
+                    <form onsubmit="submitAdmission(event)" class="space-y-4">
+                        <input id="admissionName" required class="w-full px-4 py-3 rounded-xl border border-slate-300" placeholder="শিক্ষার্থীর পূর্ণ নাম">
+                        <input id="admissionPhone" required type="tel" class="w-full px-4 py-3 rounded-xl border border-slate-300" placeholder="মোবাইল নম্বর">
+                        <select id="admissionCourse" required class="w-full px-4 py-3 rounded-xl border border-slate-300">
+                            <option value="">কোর্স নির্বাচন করুন</option>
+                        </select>
+                        <input id="admissionEducation" class="w-full px-4 py-3 rounded-xl border border-slate-300" placeholder="শিক্ষাগত যোগ্যতা (ঐচ্ছিক)">
+                        <textarea id="admissionDetails" rows="3" class="w-full px-4 py-3 rounded-xl border border-slate-300" placeholder="অতিরিক্ত তথ্য (ঐচ্ছিক)"></textarea>
+                        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl"><i class="fa-brands fa-whatsapp mr-2"></i>ভর্তির আবেদন পাঠান</button>
+                    </form>
                 </div>
             </div>
         </section>
@@ -470,27 +522,6 @@
                             </div>
                         </div>
 
-                        <!-- VCF Download Box with GitHub Dynamic Integration -->
-                        <div class="bg-gradient-to-br from-emerald-600 via-teal-700 to-emerald-900 text-white p-6 rounded-2xl shadow-lg space-y-4 glow-effect">
-                            <div>
-                                <h3 class="font-bold text-xl"><i class="fa-solid fa-address-book mr-2"></i> কন্টাক্ট সেভ করুন (VCF)</h3>
-                                <p class="text-emerald-100 text-sm mt-1">এক ক্লিকেই প্রতিষ্ঠানের সমস্ত তথ্য আপনার মোবাইলের কন্টাক্ট লিস্টে সেভ করে রাখুন।</p>
-                            </div>
-                            
-                            <!-- Download Button -->
-                            <button onclick="downloadVCF()" class="w-full bg-white text-emerald-900 hover:bg-emerald-50 font-bold py-3.5 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 transform hover:scale-102">
-                                <i class="fa-solid fa-download text-lg"></i> VCF ফাইল ডাউনলোড করুন
-                            </button>
-
-                            <!-- GitHub VCF Input Box -->
-                            <div class="pt-3 border-t border-emerald-400/30">
-                                <label class="block text-xs text-emerald-100 mb-1.5 font-medium">GitHub VCF Direct Link (কনফিগারেশন):</label>
-                                <div class="flex gap-2">
-                                    <input type="text" id="githubVcfUrlInput" placeholder="https://raw.githubusercontent.com/..." class="w-full text-xs px-3 py-2 rounded-lg text-slate-800 focus:outline-none bg-white/90">
-                                    <button onclick="updateGithubUrl()" class="bg-slate-900 hover:bg-slate-950 px-3 py-2 rounded-lg text-xs font-semibold whitespace-nowrap">সেভ লিংক</button>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
                     <!-- Location Google Maps Card -->
@@ -571,7 +602,7 @@
                 </div>
             </div>
             <div class="pt-6 text-center text-xs text-slate-500">
-                © <span id="year"></span> SMART COMPUTER & TRAINING CENTRE. सर्वाधिकार सुरक्षित।
+                © <span id="year"></span> SMART COMPUTER & TRAINING CENTRE
             </div>
         </div>
     </footer>
@@ -585,7 +616,7 @@
         const CONFIG = {
             whatsapp: "8801614398989",
             email: "smartcomputer660@gmail.com",
-            githubVcfUrl: "https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/contact.vcf", // Default GitHub VCF Link
+            announcementImageUrl: "https://github.com/smartcomputer-bd/com/blob/main/Notice.png?raw=true", // এখানে বিজ্ঞপ্তির ছবির সরাসরি URL দিন
             mapsUrl: "https://maps.app.goo.gl/6DfSoexG9rwYCDwL9"
         };
 
@@ -661,13 +692,13 @@
             },
             {
                 id: "financial",
-                title: "মোবাইল ব্যাংকিং ও অর্থ লেনদেন",
+                title: "বিকাশ/নগদ/রকেট/উপায় সেবা",
                 icon: "fa-wallet",
                 color: "from-pink-500 to-rose-600",
                 textColor: "text-pink-600",
                 bgColor: "bg-pink-50",
                 services: [
-                    "বিকাশ/নগদ/রকেট/উপায় ক্যাশ আউট", "ক্যাশ ইন", "সেন্ড মানি", 
+                    "ক্যাশ আউট", "ক্যাশ ইন", "সেন্ড মানি", 
                     "নতুন একাউন্ট খোলা", "একাউন্ট পূনউদ্ধার", "পিন পূনউদ্ধার"
                 ]
             },
@@ -693,7 +724,7 @@
                 textColor: "text-yellow-600",
                 bgColor: "bg-yellow-50",
                 services: [
-                    "বিদ্যুৎ বিল প্রদান", "পানি বিল প্রিপেইড মিটার রিচার্জ", "প্রিপেইড টোকেন উত্তোলন", 
+                    "বিদ্যুৎ বিল প্রদান", "প্রিপেইড মিটার রিচার্জ", "প্রিপেইড টোকেন উত্তোলন", 
                     "নতুন মিটারের আবেদন", "বৈদ্যুতিক লোড পরিবর্তন", "মালিকানা পরিবর্তন"
                 ]
             },
@@ -722,6 +753,10 @@
             { name: "নেটওয়ার্কিং কোর্স", desc: "কম্পিউটার নেটওয়ার্কিং, ওয়াইফাই রাউটার কনফিগারেশন ও আইপি সেটআপ।", duration: "৩ মাস", icon: "fa-network-wired", color: "text-indigo-600" }
         ];
 
+        // RESULT DATA: এখানে শিক্ষার্থীদের প্রকাশিত ফলাফল যোগ/পরিবর্তন করুন।
+        // উদাহরণ: { roll: "1001", name: "শিক্ষার্থীর নাম", course: "অফিস এপ্লিকেশন কোর্স", result: "A+" }
+        const studentResults = [];
+
         // INITIALIZATION
         window.onload = function() {
             // Initialize AOS Animation
@@ -731,12 +766,26 @@
             });
 
             document.getElementById('year').innerText = new Date().getFullYear();
-            document.getElementById('githubVcfUrlInput').value = CONFIG.githubVcfUrl;
 
             renderCategories('categoriesContainer');
             renderCategories('servicesPageContainer');
             renderCourses();
             populateOrderSelect();
+            const announcementImage = document.getElementById('announcementImage');
+            if (announcementImage) {
+                announcementImage.src = CONFIG.announcementImageUrl;
+                announcementImage.onerror = function() {
+                    this.alt = 'বিজ্ঞপ্তির ছবির লিংক CONFIG.announcementImageUrl-এ সেট করুন';
+                    this.style.minHeight = '140px';
+                };
+            }
+            const admissionCourse = document.getElementById('admissionCourse');
+            coursesData.forEach(course => {
+                const option = document.createElement('option');
+                option.value = course.name;
+                option.textContent = course.name;
+                admissionCourse.appendChild(option);
+            });
             initHeroCanvas();
 
             // Mobile Menu Toggle
@@ -935,6 +984,41 @@
             document.getElementById('feedbackForm').reset();
         }
 
+        // RESULT LOOKUP: results are displayed from the editable studentResults array above.
+        function lookupStudentResult(event) {
+            event.preventDefault();
+            const roll = document.getElementById('resultRoll').value.trim().toLowerCase();
+            const result = studentResults.find(item => String(item.roll).trim().toLowerCase() === roll);
+            const output = document.getElementById('resultOutput');
+            if (!result) {
+                output.innerHTML = '<div class="p-4 rounded-xl bg-amber-50 border border-amber-200 text-amber-800">এই রোল নম্বরের কোনো ফলাফল পাওয়া যায়নি। ফলাফল প্রকাশিত হলে ডেটাবেসে তথ্য যোগ করুন।</div>';
+                return;
+            }
+            output.innerHTML = `<div class="p-5 rounded-xl bg-emerald-50 border border-emerald-200 space-y-2">
+                <h3 class="text-lg font-bold text-emerald-800">ফলাফল পাওয়া গেছে</h3>
+                <p><strong>নাম:</strong> ${escapeResultText(result.name)}</p>
+                <p><strong>রোল:</strong> ${escapeResultText(result.roll)}</p>
+                <p><strong>কোর্স:</strong> ${escapeResultText(result.course)}</p>
+                <p><strong>ফলাফল:</strong> ${escapeResultText(result.result)}</p>
+            </div>`;
+        }
+        function escapeResultText(value) {
+            return String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+        }
+        function submitAdmission(event) {
+            event.preventDefault();
+            const fields = {
+                name: document.getElementById('admissionName').value.trim(),
+                phone: document.getElementById('admissionPhone').value.trim(),
+                course: document.getElementById('admissionCourse').value,
+                education: document.getElementById('admissionEducation').value.trim() || 'উল্লেখ নেই',
+                details: document.getElementById('admissionDetails').value.trim() || 'নাই'
+            };
+            const message = `*নতুন কোর্স ভর্তি আবেদন*%0A%0A*শিক্ষার্থীর নাম:* ${encodeURIComponent(fields.name)}%0A*মোবাইল:* ${encodeURIComponent(fields.phone)}%0A*কোর্স:* ${encodeURIComponent(fields.course)}%0A*শিক্ষাগত যোগ্যতা:* ${encodeURIComponent(fields.education)}%0A*অতিরিক্ত তথ্য:* ${encodeURIComponent(fields.details)}`;
+            window.open(`https://wa.me/${CONFIG.whatsapp}?text=${message}`, '_blank');
+            event.target.reset();
+        }
+
         // MODAL ACTIONS
         function showModal() {
             document.getElementById('successModal').classList.remove('hidden');
@@ -942,43 +1026,6 @@
 
         function closeModal() {
             document.getElementById('successModal').classList.add('hidden');
-        }
-
-        // UPDATE GITHUB VCF LINK
-        function updateGithubUrl() {
-            const url = document.getElementById('githubVcfUrlInput').value.trim();
-            if(url) {
-                CONFIG.githubVcfUrl = url;
-                alert('GitHub VCF লিংক সফলভাবে সেভ হয়েছে!');
-            }
-        }
-
-        // DOWNLOAD VCF FILE (GITHUB WITH LOCAL FALLBACK)
-        function downloadVCF() {
-            if(CONFIG.githubVcfUrl && CONFIG.githubVcfUrl.includes('raw.githubusercontent.com')) {
-                window.open(CONFIG.githubVcfUrl, '_blank');
-            } else {
-                // Fallback direct VCF generator
-                const vcardData = 
-`BEGIN:VCARD
-VERSION:3.0
-FN:SMART COMPUTER & TRAINING CENTRE
-ORG:SMART COMPUTER & TRAINING CENTRE
-TEL;TYPE=WORK,VOICE;TYPE=PREF:+8801614398989
-EMAIL;TYPE=WORK:smartcomputer660@gmail.com
-URL;TYPE=Map:https://maps.app.goo.gl/6DfSoexG9rwYCDwL9
-NOTE:স্মার্ট কম্পিউটার এন্ড ট্রেনিং সেন্টার - আপনার বিশ্বস্ত আইটি ও ডিজিটাল সেবা কেন্দ্র।
-END:VCARD`;
-
-                const blob = new Blob([vcardData], { type: 'text/vcard;charset=utf-8;' });
-                const url = URL.URL.createObjectURL(blob);
-                const link = document.createElement('a');
-                link.href = url;
-                link.setAttribute('download', 'SMART_COMPUTER_CONTACT.vcf');
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            }
         }
 
         // HERO CANVAS PARTICLES ANIMATION
